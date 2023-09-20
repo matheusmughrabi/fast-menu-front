@@ -13,7 +13,7 @@ def format_currency(value):
 
 app.add_template_filter(format_currency, 'currency')
 
-url_api = 'http://localhost:60491'
+url_api = 'http://localhost:59160'
 
 @app.route('/')
 @app.route('/home')

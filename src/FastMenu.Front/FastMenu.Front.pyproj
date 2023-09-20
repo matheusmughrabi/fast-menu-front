@@ -66,8 +66,6 @@
     <Content Include="fast_menu\static\scripts\respond.js" />
     <Content Include="fast_menu\static\scripts\respond.min.js" />
     <Content Include="fast_menu\static\scripts\_references.js" />
-    <Content Include="fast_menu\templates\about.html" />
-    <Content Include="fast_menu\templates\contact.html" />
     <Content Include="fast_menu\templates\index.html" />
     <Content Include="fast_menu\templates\layout.html" />
   </ItemGroup>
