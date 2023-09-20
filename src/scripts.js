@@ -1,7 +1,6 @@
-const url_api = 'http://localhost:56098';
+const url_api = 'http://127.0.0.1:5000';
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Assim que a página for carregada, chame a API para obter os dados
     fetch(`${url_api}/restaurante/home?id_restaurante=1`)
         .then(response => response.json())
         .then(data => {
@@ -20,7 +19,7 @@ function renderData(data) {
     hiddenCardapioId.value = data.cardapio.id_cardapio;
 
     data.cardapio.cardapio_secoes.forEach(secao => {
-        const secaoElement = document.createElement('div'); // Mova esta linha para dentro do loop
+        const secaoElement = document.createElement('div');
 
         secaoElement.innerHTML = `
         <h2>${secao.nome}</h2>
@@ -78,10 +77,8 @@ function criarEventoAdicionarItemBotao(){
     $('.btn-add-item').on('click', function() {
         const secaoId = $(this).data('secao-id');
     
-        // Atualizar o valor do input oculto com o ID da seção
         $('#hiddenSecaoId').val(secaoId);
     
-        // Mostrar o modal usando jQuery
         $('#addItemModal').modal('show');
     });
 }
@@ -89,7 +86,7 @@ function criarEventoAdicionarItemBotao(){
 
 function criarEventoAdicionarItemModal(){
     $('#addItemModal form').on('submit', function(event) {
-        event.preventDefault(); // Evitar que o formulário seja enviado
+        event.preventDefault();
 
         const nome = $('#itemName').val();
         const valor = parseFloat($('#itemValue').val());
@@ -104,13 +101,13 @@ function criarEventoAdicionarItemModal(){
             url: `${url_api}/cardapio-item/novo`,
             type: 'POST',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false, 
+            processData: false, 
             success: function (data) {
                 if(data.detail) {
-                    alert(data.detail); // Mostre uma mensagem se algo der errado
+                    alert(data.detail); 
                 } else {
-                    location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                    location.reload();
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -131,12 +128,12 @@ function criarEventoDeletarItemBotao(){
             url: `${url_api}/cardapio-item/deletar`,
             type: 'DELETE',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false,
+            processData: false,
             success: function (result) {
                 if (result.message) {
                     alert('Item deletado com sucesso!');
-                    location.reload(); // Recarrega a página para refletir a mudança
+                    location.reload();
                 } else {
                     alert('Erro ao deletar item. Por favor, tente novamente.');
                 }
@@ -157,7 +154,7 @@ function criarEventoEditarNomeItemBotao(){
 
 function criarEventoEditarNomeModal(){
     $('#editNameModal form').on('submit', function(event) {
-        event.preventDefault(); // Evitar que o formulário seja enviado
+        event.preventDefault(); 
 
         const nome = $('#item_nome_edit').val();
         const idItem = parseInt($('#item_id_edit').val());
@@ -170,13 +167,13 @@ function criarEventoEditarNomeModal(){
             url: `${url_api}/cardapio-item/atualizar-nome`,
             type: 'PATCH',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false,
+            processData: false,
             success: function (data) {
                 if(data.detail) {
-                    alert(data.detail); // Mostre uma mensagem se algo der errado
+                    alert(data.detail);
                 } else {
-                    location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                    location.reload();
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -198,7 +195,7 @@ function criarEventoEditarValorItemBotao(){
 
 function criarEventoEditarValorItemModal(){
     $('#editValueModal form').on('submit', function(event) {
-        event.preventDefault(); // Evitar que o formulário seja enviado
+        event.preventDefault();
 
         const valor = $('#item_valor_edit').val();
         const idItem = parseInt($('#item_id_edit_valor').val());
@@ -211,13 +208,13 @@ function criarEventoEditarValorItemModal(){
             url: `${url_api}/cardapio-item/atualizar-valor`,
             type: 'PATCH',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false,
+            processData: false,
             success: function (data) {
                 if(data.detail) {
-                    alert(data.detail); // Mostre uma mensagem se algo der errado
+                    alert(data.detail);
                 } else {
-                    location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                    location.reload();
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -229,20 +226,17 @@ function criarEventoEditarValorItemModal(){
 
 function criarEventoAdicionarSecaoBotao(){
     $(".btn-add-secao").click(function () {
-        // Obter o id_cardapio do botão
         var cardapioId = $(this).data("cardapio-id");
     
-        // Definir o id_cardapio no campo oculto do modal
         $("#inputCardapioId").val(cardapioId);
     
-        // Mostrar o modal
         $("#addSecaoModal").modal('show');
     });
 }
 
 function criarEventoAdicionarSecaoModal(){
     $('#addSecaoModal form').on('submit', function(event) {
-        event.preventDefault(); // Evitar que o formulário seja enviado
+        event.preventDefault();
 
         const idCardapio = parseInt($('#inputCardapioId').val());
         const nome = $('#secaoName').val();
@@ -255,13 +249,13 @@ function criarEventoAdicionarSecaoModal(){
             url: `${url_api}/menu-secao/novo`,
             type: 'POST',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false,
+            processData: false, 
             success: function (data) {
                 if(data.detail) {
-                    alert(data.detail); // Mostre uma mensagem se algo der errado
+                    alert(data.detail); 
                 } else {
-                    location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                    location.reload();
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -285,7 +279,7 @@ function criarEventoEditarSecaoBotao(){
 
 function criarEventoEditarSecaoModal(){
     $('#editSecaoModal form').on('submit', function(event) {
-        event.preventDefault(); // Evitar que o formulário seja enviado
+        event.preventDefault(); 
 
         const idSecao = parseInt($('#editSecaoId').val());
         const nome = $('#editSecaoName').val();
@@ -298,13 +292,13 @@ function criarEventoEditarSecaoModal(){
             url: `${url_api}/menu-secao/atualizar-nome`,
             type: 'PATCH',
             data: formData,
-            contentType: false, // Necessário para jQuery não ajustar o content type
-            processData: false, // Não processar o formData
+            contentType: false, 
+            processData: false,
             success: function (data) {
                 if(data.detail) {
-                    alert(data.detail); // Mostre uma mensagem se algo der errado
+                    alert(data.detail);
                 } else {
-                    location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                    location.reload(); 
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -329,13 +323,13 @@ function criarEventoDeletarSecao(){
                 url: `${url_api}/menu-secao/deletar`,
                 type: 'DELETE',
                 data: formData,
-                contentType: false, // Necessário para jQuery não ajustar o content type
-                processData: false, // Não processar o formData
+                contentType: false, 
+                processData: false,
                 success: function (data) {
                     if(data.detail) {
-                        alert(data.detail); // Mostre uma mensagem se algo der errado
+                        alert(data.detail); 
                     } else {
-                        location.reload(); // Recarregue a página ou faça alguma outra ação após adicionar o item com sucesso
+                        location.reload();
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
