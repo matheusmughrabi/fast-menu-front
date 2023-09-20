@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma administrativa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+
+    <div class="container body-content app">
+        <h1 id="nomeRestaurante"></h1> <!-- Elemento para o nome do restaurante -->
+
+        <div class="cardapio-container bg-light" style="padding: 20px; border-radius: 10px;">
+            <input type="hidden" id="hiddenCardapioId">
+            <div id="secoesContainer"></div> <!-- Container para as seções -->
+        </div>
+
+
+        <!-- Início do Modal para Adicionar Item -->
+        <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addItemModalLabel">Adicionar Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="post">
+                        <div class="modal-body">
+                            <!-- Campo oculto para armazenar o ID da seção -->
+                            <input type="hidden" name="item_secao_id" id="hiddenSecaoId" value="">
+
+                            <!-- Campo para Nome do Item -->
+                            <div class="mb-3">
+                                <label for="itemName" class="form-label">Nome do Item</label>
+                                <input type="text" class="form-control" id="itemName" name="item_name" required>
+                            </div>
+
+                            <!-- Campo para Valor do Item -->
+                            <div class="mb-3">
+                                <label for="itemValue" class="form-label">Valor do Item (R$)</label>
+                                <input type="number" step="0.01" class="form-control" id="itemValue" name="item_value"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Modal para Adicionar Item -->
+
+        <!-- Modal Editar Nome -->
+        <div class="modal fade" id="editNameModal" tabindex="-1" role="dialog" aria-labelledby="editNameModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editNameModalLabel">Editar Nome do Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post">
+                        <div class="modal-body">
+                            <input type="hidden" name="item_id" id="item_id_edit" value="">
+                            <div class="form-group">
+                                <label for="item_nome">Nome</label>
+                                <input type="text" class="form-control" name="item_nome" id="item_nome_edit" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Editar Valor -->
+        <div class="modal fade" id="editValueModal" tabindex="-1" role="dialog" aria-labelledby="editValueModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editValueModalLabel">Editar Valor do Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post">
+                        <div class="modal-body">
+                            <input type="hidden" name="item_id_valor" id="item_id_edit_valor" value="">
+                            <div class="form-group">
+                                <label for="item_valor">Valor (R$)</label>
+                                <input type="number" step="0.01" class="form-control" name="item_valor"
+                                    id="item_valor_edit" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Início do Modal para Adicionar Seção -->
+        <div class="modal fade" id="addSecaoModal" tabindex="-1" aria-labelledby="addSecaoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addSecaoModalLabel">Adicionar Seção</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" name="id_cardapio" id="inputCardapioId">
+
+                        <div class="modal-body">
+                            <!-- Campo para Nome da Seção -->
+                            <div class="mb-3">
+                                <label for="secaoName" class="form-label">Nome da Seção</label>
+                                <input type="text" class="form-control" id="secaoName" name="nome" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Modal para Adicionar Seção -->
+
+        <!-- Início do Modal para Editar Seção -->
+        <div class="modal fade" id="editSecaoModal" tabindex="-1" aria-labelledby="editSecaoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editSecaoModalLabel">Editar Seção</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="post">
+                        <div class="modal-body">
+                            <!-- Campo para Nome da Seção -->
+                            <div class="mb-3">
+                                <label for="editSecaoName" class="form-label">Nome da Seção</label>
+                                <input type="text" class="form-control" id="editSecaoName" name="nome" required>
+                            </div>
+                            <!-- Campo oculto para armazenar o ID da seção -->
+                            <input type="hidden" id="editSecaoId" name="id_secao">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fim do Modal para Editar Seção -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
