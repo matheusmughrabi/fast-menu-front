@@ -7,33 +7,33 @@ Fast Menu Front disponibiliza ao usuário uma experiência simples de criação 
 A seguir segue um resumo de cada funcionalidade do Fast Menu Front e como utilizá-la.
 
 ### Criar seção no cardápio
-Para criar uma seção no cardápio basta clicar no botão "Adicionar Seção".
-Um modal irá se abrir e você poderá nomear a seção.
+Para criar uma seção no cardápio basta clicar no botão "Adicionar Seção".\
+Um modal irá se abrir e você poderá nomear a seção.\
 Clique em Salvar para confirmar a criação ou cancelar para descartar.
 
 ### Editar seção no cardápio
-Para editar uma seção do cardápio basta clicar no botão "Editar Seção".
-Um modal irá se abrir e você poderá renomear a seção.
+Para editar uma seção do cardápio basta clicar no botão "Editar Seção".\
+Um modal irá se abrir e você poderá renomear a seção.\
 Clique em Salvar para confirmar a atualização ou cancelar para descartar.
 
 ### Deletar seção no cardápio
-Para deletar uma seção do cardápio basta clicar no botão "Deletar Seção".
-Um alert irá se abrir.
+Para deletar uma seção do cardápio basta clicar no botão "Deletar Seção".\
+Um alert irá se abrir.\
 Clique em OK para confirmar a deleção ou cancelar para descartar.
 
 ### Adicionar um item a uma seção do cardápio
-Para adicionar um item a uma seção do cardápio clique no botão "Adicionar item".
-Um modal irá se abrir e você poderá informar o nome e valor do item.
+Para adicionar um item a uma seção do cardápio clique no botão "Adicionar item".\
+Um modal irá se abrir e você poderá informar o nome e valor do item.\
 Clique em Salvar para confirmar a criação ou cancelar para descartar.
 
 ### Editar o nome de um item do cardápio
-Para editar o nome de um item de uma seção do cardápio clique no botão "Editar nome".
-Um modal irá se abrir e você poderá informar o novo nome do item.
+Para editar o nome de um item de uma seção do cardápio clique no botão "Editar nome".\
+Um modal irá se abrir e você poderá informar o novo nome do item.\
 Clique em Salvar para confirmar a atualização ou cancelar para descartar.
 
 ### Editar o valor de um item do cardápio
-Para editar o valor de um item de uma seção do cardápio clique no botão "Editar valor".
-Um modal irá se abrir e você poderá informar o novo valor do item.
+Para editar o valor de um item de uma seção do cardápio clique no botão "Editar valor".\
+Um modal irá se abrir e você poderá informar o novo valor do item.\
 Clique em Salvar para confirmar a atualização ou cancelar para descartar.
 
 ### Deletar um item do cardápio
