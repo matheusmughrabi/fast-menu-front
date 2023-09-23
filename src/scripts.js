@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(`${url_api}/restaurante/home?id_restaurante=1`)
         .then(response => response.json())
         .then(data => {
-            renderData(data);
-            createEvents();
+            renderizarCardapio(data);
+            criarEventos();
         });
 });
 
-function renderData(data) {
+function renderizarCardapio(data) {
     const nomeRestaurante = document.getElementById('nomeRestaurante');
     nomeRestaurante.innerText = data.nome_restaurante;
 
@@ -58,7 +58,7 @@ function renderData(data) {
     secoesContainer.appendChild(btnElement);
 }
 
-function createEvents(){
+function criarEventos(){
     criarEventoAdicionarItemBotao();
     criarEventoAdicionarItemModal();
     criarEventoDeletarItemBotao();
@@ -79,17 +79,17 @@ function criarEventoAdicionarItemBotao(){
     
         $('#hiddenSecaoId').val(secaoId);
     
-        $('#addItemModal').modal('show');
+        $('#adicionarCardapioItem').modal('show');
     });
 }
 
 
 function criarEventoAdicionarItemModal(){
-    $('#addItemModal form').on('submit', function(event) {
+    $('#adicionarCardapioItem form').on('submit', function(event) {
         event.preventDefault();
 
-        const nome = $('#itemName').val();
-        const valor = parseFloat($('#itemValue').val());
+        const nome = $('#nomeItem').val();
+        const valor = parseFloat($('#valorItem').val());
         const id_cardapio_secao = parseInt($('#hiddenSecaoId').val());
 
         let formData = new FormData();
@@ -246,7 +246,7 @@ function criarEventoAdicionarSecaoModal(){
         formData.append('nome', nome);
 
         $.ajax({
-            url: `${url_api}/menu-secao/novo`,
+            url: `${url_api}/cardapio-secao/novo`,
             type: 'POST',
             data: formData,
             contentType: false,
@@ -289,7 +289,7 @@ function criarEventoEditarSecaoModal(){
         formData.append('nome', nome);
 
         $.ajax({
-            url: `${url_api}/menu-secao/atualizar-nome`,
+            url: `${url_api}/cardapio-secao/atualizar-nome`,
             type: 'PATCH',
             data: formData,
             contentType: false, 
@@ -320,7 +320,7 @@ function criarEventoDeletarSecao(){
             formData.append('id_secao', secaoId);
 
             $.ajax({
-                url: `${url_api}/menu-secao/deletar`,
+                url: `${url_api}/cardapio-secao/deletar`,
                 type: 'DELETE',
                 data: formData,
                 contentType: false, 

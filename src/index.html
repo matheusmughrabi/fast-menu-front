@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma administrativa</title>
+    <title>Fast Menu - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -24,13 +24,12 @@
             <div id="secoesContainer"></div> <!-- Container para as seções -->
         </div>
 
-
-        <!-- Início do Modal para Adicionar Item -->
-        <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <!-- Início do Modal para Adicionar Item ao cardápio -->
+        <div class="modal fade" id="adicionarCardapioItem" tabindex="-1" aria-labelledby="adicionarCardapioItemLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addItemModalLabel">Adicionar Item</h5>
+                        <h5 class="modal-title" id="adicionarCardapioItemLabel">Adicionar Item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form method="post">
@@ -40,14 +39,14 @@
 
                             <!-- Campo para Nome do Item -->
                             <div class="mb-3">
-                                <label for="itemName" class="form-label">Nome do Item</label>
-                                <input type="text" class="form-control" id="itemName" name="item_name" required>
+                                <label for="nomeItem" class="form-label">Nome do Item</label>
+                                <input type="text" class="form-control" id="nomeItem" name="nomeitem" required>
                             </div>
 
                             <!-- Campo para Valor do Item -->
                             <div class="mb-3">
-                                <label for="itemValue" class="form-label">Valor do Item (R$)</label>
-                                <input type="number" step="0.01" class="form-control" id="itemValue" name="item_value"
+                                <label for="valorItem" class="form-label">Valor do Item (R$)</label>
+                                <input type="number" step="0.01" class="form-control" id="valorItem" name="valorItem"
                                     required>
                             </div>
                         </div>
@@ -59,9 +58,10 @@
                 </div>
             </div>
         </div>
-        <!-- Fim do Modal para Adicionar Item -->
+        <!-- Fim do Modal para Adicionar Item ao cardápio -->
 
-        <!-- Modal Editar Nome -->
+
+        <!-- Modal Editar Nome de um ítem do cardápio -->
         <div class="modal fade" id="editNameModal" tabindex="-1" role="dialog" aria-labelledby="editNameModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <!-- Modal Editar Valor -->
+        <!-- Modal Atualizar Valor de um ítem do cardápio -->
         <div class="modal fade" id="editValueModal" tabindex="-1" role="dialog" aria-labelledby="editValueModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
