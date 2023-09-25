@@ -111,7 +111,7 @@ function criarEventoAdicionarItemModal(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Erro ao adicionar item. Por favor, tente novamente.');
+                alert(jqXHR.responseJSON.message);
             }
         });
     });
@@ -135,7 +135,7 @@ function criarEventoDeletarItemBotao(){
                     alert('Item deletado com sucesso!');
                     location.reload();
                 } else {
-                    alert('Erro ao deletar item. Por favor, tente novamente.');
+                    alert(jqXHR.responseJSON.message);
                 }
             }
         });
@@ -177,7 +177,7 @@ function criarEventoEditarNomeModal(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Erro ao atualizar nome do item. Por favor, tente novamente.');
+                alert(jqXHR.responseJSON.message);
             }
         });
     });
@@ -218,7 +218,7 @@ function criarEventoEditarValorItemModal(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Erro ao atualizar valor do item. Por favor, tente novamente.');
+                alert(jqXHR.responseJSON.message);
             }
         });
     });
@@ -259,7 +259,7 @@ function criarEventoAdicionarSecaoModal(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Erro ao criar nova seção no cardápio. Por favor, tente novamente.');
+                alert(jqXHR.responseJSON.message);
             }
         });
     });
@@ -302,7 +302,7 @@ function criarEventoEditarSecaoModal(){
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Erro ao editar nome da seção. Por favor, tente novamente.');
+                alert(jqXHR.responseJSON.message);
             }
         });
     });
@@ -333,7 +333,7 @@ function criarEventoDeletarSecao(){
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Erro ao deletar seção. Por favor, tente novamente.');
+                    alert(jqXHR.responseJSON.message);
                 }
             });
         }
