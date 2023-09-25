@@ -1,10 +1,17 @@
 # Fast Menu Front
 
+## Índice
+
+- [Sobre](#sobre)
+- [Guia de uso](#guia_uso)
+- [Como executar](#como_executar)
+- [Limitações](#limitacoes)
+
 ## Sobre<a name = "sobre"></a>
 Fast Menu Front disponibiliza ao usuário uma experiência simples de criação e edição de um cardápio de um restaurante.
 Para isso, Fast Menu Front comunica-se com Fast Menu API (https://github.com/matheusmughrabi/fast-menu-api/tree/master).
 
-## Guia de uso<a name = "features"></a>
+## Guia de uso<a name = "guia_uso"></a>
 A seguir segue um resumo de cada funcionalidade do Fast Menu Front e como utilizá-la.
 
 ### Obter dados do restaurante
@@ -62,6 +69,9 @@ Clique em Salvar para confirmar a atualização ou cancelar para descartar.\
 Para deletar um item do cardápio basta clicar no botão deletar item.\
 **Endpoint chamado em Fast Menu API:** [DELETE] cardapio-item/deletar
 
+## Como executar<a name = "como_executar"></a>
+1. Necessário ter a aplicação Fast Menu Api executando (segue o link com a documentação de como executar a api: https://github.com/matheusmughrabi/fast-menu-api)
+2. Abra o arquivo index.html no diretório ./src/index.html
 
 ## Limitações<a name = "limitacoes"></a>
 O projeto Fast Menu Front é apenas um MVP, por isso o conjunto de features implementadas é bastante limitado.
@@ -69,10 +79,4 @@ Segue algumas limitações atuais do projeto:
 1. Ao abrir a aplicação, uma conta é aberta automaticamente e não temos a possibilidade de criar novas contas (a aplicação é single-tenant).
 2. A aplicação não necessita de autenticação atualmente, ao executar o projeto podemos editar o cardápio do restaurante sem estarmos autenticados
 3. Não é possível criar novos restaurantes para a conta. No futuro penso que uma conta pode ter vários restaurantes para atender clientes grandes (i.e, Mcdonald's e outras grandes marcas)
-
-
-## Como executar<a name = "Como executar"></a>
-1. Necessário ter a aplicação Fast Menu Api executando (segue o link com a documentação de como executar a api: https://github.com/matheusmughrabi/fast-menu-api)
-2. Abra o arquivo index.html no diretório ./src/index.html
-
 
