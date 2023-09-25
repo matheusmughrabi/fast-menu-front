@@ -9,8 +9,8 @@
 - [Limitações](#limitacoes)
 
 ## Sobre<a name = "sobre"></a>
-Fast Menu Front disponibiliza ao usuário uma experiência simples de criação e edição de um cardápio de um restaurante.
-Para isso, Fast Menu Front comunica-se com Fast Menu API (https://github.com/matheusmughrabi/fast-menu-api/tree/master).
+Fast Menu Front disponibiliza ao usuário uma experiência simples de criação e edição de um cardápio de um restaurante.\
+Para isso, Fast Menu Front integra com Fast Menu API (https://github.com/matheusmughrabi/fast-menu-api/tree/master).
 
 ## Guia de uso<a name = "guia_uso"></a>
 A seguir segue um resumo de cada funcionalidade do Fast Menu Front e como utilizá-la.
