@@ -5,6 +5,7 @@
 - [Sobre](#sobre)
 - [Guia de uso](#guia_uso)
 - [Como executar](#como_executar)
+- [Próximas features](#proximas_features)
 - [Limitações](#limitacoes)
 
 ## Sobre<a name = "sobre"></a>
@@ -72,6 +73,19 @@ Para deletar um item do cardápio basta clicar no botão deletar item.\
 ## Como executar<a name = "como_executar"></a>
 1. Necessário ter a aplicação Fast Menu Api executando (segue o link com a documentação de como executar a api: https://github.com/matheusmughrabi/fast-menu-api)
 2. Abra o arquivo index.html no diretório ./src/index.html
+
+## Próximas features<a name = "proximas_features"></a>
+Segue a lista de próximas features que serão implementadas em Fast Menu Front
+1. Página de criação de uma nova conta
+2. Página de login
+3. Página para cadastro de usuários dentro de uma conta
+4. Página para o cliente fazer um pedido
+    1. Página com o cardápio
+    2. Página com o carrinho
+    3. Página do valor total da conta
+    4. Página para fechar a conta
+5. Página de pagamento realizado com sucesso
+6. Página para deixar sugestões para o restaurante
 
 ## Limitações<a name = "limitacoes"></a>
 O projeto Fast Menu Front é apenas um MVP, por isso o conjunto de features implementadas é bastante limitado.
